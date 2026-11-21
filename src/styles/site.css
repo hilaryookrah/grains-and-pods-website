@@ -153,3 +153,179 @@
   .stat-num { font-size: 44px; }
 }
 
+/* About */
+.btn-forest { background: var(--forest); color: #fff; }
+
+.page-hero { background: var(--forest); color: #fff; padding: 172px 32px 96px; }
+.page-hero-inner { max-width: var(--max); margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
+.page-hero-eyebrow { margin: 0; color: var(--gold); font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; font-size: 13px; }
+.page-hero h1 { margin: 0; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 54px; line-height: 1.12; max-width: 860px; }
+.page-hero-lead { margin: 0; font-size: 19px; line-height: 1.6; color: var(--sage); max-width: 760px; }
+
+.story { display: flex; flex-wrap: wrap; gap: 56px; align-items: center; }
+.story-text { flex: 1 1 440px; display: flex; flex-direction: column; gap: 20px; }
+.story-text p { margin: 0; font-size: 17px; line-height: 1.7; color: var(--body); }
+.story-quote { font-family: 'Playfair Display', serif; font-size: 24px !important; font-weight: 700; line-height: 1.4 !important; color: var(--forest) !important; }
+.story-image { flex: 1 1 420px; min-width: 0; width: 100%; height: 480px; object-fit: cover; border-radius: 20px; }
+
+.values { background: var(--mint); padding: 88px 32px; }
+.values-grid { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+.value-card { background: #fff; border-radius: 20px; padding: 40px; display: flex; flex-direction: column; gap: 14px; }
+.value-label { font-size: 13px; font-weight: 700; color: var(--olive); letter-spacing: 0.1em; text-transform: uppercase; }
+.value-statement { margin: 0; font-family: 'Playfair Display', serif; font-size: 22px; line-height: 1.45; color: var(--forest); }
+.value-text { margin: 0; font-size: 16px; line-height: 1.7; color: var(--body); }
+
+.team-head { max-width: 720px; display: flex; flex-direction: column; gap: 12px; }
+.team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 20px; }
+.member { display: flex; flex-direction: column; gap: 10px; }
+.member-photo { height: 230px; border-radius: 16px; display: flex; align-items: center; justify-content: center; overflow: hidden; font-family: 'Playfair Display', serif; font-size: 40px; color: var(--forest); background: #DCE8DF; }
+.member-photo-alt { background: var(--cream); }
+.member-photo img { width: 100%; height: 100%; object-fit: cover; }
+.member-name { font-size: 18px; font-weight: 700; color: var(--ink); }
+.member-role { font-size: 14px; font-weight: 600; color: var(--olive); }
+.member-bio { font-size: 14px; line-height: 1.55; color: #4A5A50; }
+
+.board { background: var(--forest); color: #fff; padding: 80px 32px; }
+.board-inner { max-width: var(--max); margin: 0 auto; display: flex; flex-wrap: wrap; gap: 40px; align-items: center; }
+.board-copy { flex: 1 1 420px; display: flex; flex-direction: column; gap: 14px; }
+.board-copy h2 { margin: 0; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 34px; }
+.board-copy p { margin: 0; font-size: 17px; line-height: 1.6; color: var(--sage); }
+.board-list { flex: 1 1 420px; margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px; font-size: 16px; }
+.board-list li { background: rgba(255, 255, 255, 0.08); border-radius: 12px; padding: 18px 20px; }
+
+.page-cta { background: var(--cream); padding: 72px 32px; }
+.page-cta-inner { max-width: var(--max); margin: 0 auto; display: flex; flex-wrap: wrap; gap: 24px; align-items: center; justify-content: space-between; }
+.page-cta h2 { margin: 0; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 30px; color: var(--forest); }
+
+@media (max-width: 720px) {
+  .page-hero { padding: 150px 20px 64px; }
+  .page-hero h1 { font-size: 38px; }
+  .story-image { height: 320px; }
+}
+/* Motion */
+
+/* Transitions for pressable and hoverable elements */
+.btn, .nav-cta, .footer-cta, .whatsapp-btn, .hero-card, .card-outline,
+.stat, .circular-card, .value-card, .tile, .trust-item {
+  transition: transform 200ms var(--ease-out), background-color 180ms var(--ease-out),
+    color 180ms var(--ease-out), box-shadow 200ms var(--ease-out), border-color 200ms var(--ease-out);
+}
+.nav-cta-icon, .footer-cta-icon { transition: transform 200ms var(--ease-out); }
+.nav-links a { transition: color 180ms var(--ease-out); }
+.member-photo img { transition: transform 400ms var(--ease-out); }
+
+/* Hover states, only on devices with a real pointer */
+@media (hover: hover) and (pointer: fine) {
+  .nav-links a:hover { color: var(--forest); }
+  .nav-cta:hover { background-color: var(--leaf); }
+  .nav-cta:hover .nav-cta-icon { transform: translate(2px, -2px); }
+  .footer-cta:hover .footer-cta-icon { transform: translate(2px, -2px); }
+
+  .btn-gold:hover, .footer-cta:hover, .whatsapp-btn:hover { background-color: #E2AE2A; }
+  .btn-white:hover { background-color: var(--mint); }
+  .btn-outline:hover { background-color: rgba(255, 255, 255, 0.12); }
+  .btn-forest:hover { background-color: var(--deep); }
+
+  .hero-card:hover { transform: translateY(-3px); box-shadow: 0 16px 32px rgba(15, 42, 31, 0.28); }
+  .card-outline:hover { transform: translateY(-3px); border-color: var(--leaf); box-shadow: 0 12px 28px rgba(15, 42, 31, 0.08); }
+  .stat:hover, .circular-card:hover, .value-card:hover, .tile:hover, .trust-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(15, 42, 31, 0.08);
+  }
+  .member:hover .member-photo img { transform: scale(1.03); }
+}
+
+/* Entrance on first load (hero only, plays once) */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes grow {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
+
+.hero-copy > * { animation: rise 500ms var(--ease-out) backwards; }
+.hero-copy > :nth-child(2) { animation-delay: 60ms; }
+.hero-copy > :nth-child(3) { animation-delay: 120ms; }
+.hero-copy > :nth-child(4) { animation-delay: 180ms; }
+.hero-copy > :nth-child(5) { animation-delay: 240ms; }
+
+/* Scroll-linked reveals. Browsers without scroll timelines show the content as it is. */
+@supports (animation-timeline: view()) {
+  .stat, .card-outline, .grain-bank, .circular-card, .value-card, .tile, .member, .trust-item {
+    animation: rise 600ms var(--ease-out) backwards;
+    animation-timeline: view();
+    animation-range: entry 0% entry 35%;
+  }
+  .bar-fill {
+    animation: grow 800ms var(--ease-out) backwards;
+    animation-timeline: view();
+    animation-range: entry 0% entry 60%;
+    transform-origin: bottom;
+  }
+}
+
+/* Press feedback goes last so it wins over hover lifts */
+.btn:active, .nav-cta:active, .footer-cta:active, .whatsapp-btn:active, .hero-card:active {
+  transform: scale(0.97);
+}
+
+/* Reduced motion: no movement, opacity and colour changes stay */
+@media (prefers-reduced-motion: reduce) {
+  .hero-copy > *, .stat, .card-outline, .grain-bank, .circular-card, .value-card,
+  .tile, .member, .trust-item, .bar-fill {
+    animation: none !important;
+  }
+  .hero-card:hover, .card-outline:hover, .stat:hover, .circular-card:hover,
+  .value-card:hover, .tile:hover, .trust-item:hover {
+    transform: none;
+  }
+  .member:hover .member-photo img { transform: none; }
+  .btn:active, .nav-cta:active, .footer-cta:active, .whatsapp-btn:active, .hero-card:active {
+    transform: none;
+  }
+}
+/* Scroll reveal, driven by src/hooks/useReveal.js */
+[data-reveal] {
+  opacity: 0;
+  translate: 0 48px;
+  scale: 0.94;
+  filter: blur(8px);
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  translate: 0 0;
+  scale: 1;
+  filter: blur(0);
+  transition:
+    opacity 900ms var(--ease-out) var(--d, 0ms),
+    translate 900ms var(--ease-out) var(--d, 0ms),
+    scale 900ms var(--ease-out) var(--d, 0ms),
+    filter 900ms var(--ease-out) var(--d, 0ms),
+    transform 200ms var(--ease-out),
+    box-shadow 200ms var(--ease-out),
+    border-color 200ms var(--ease-out);
+}
+
+/* Feed cost bars grow from the base once the chart is in view */
+.bar-fill {
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 1000ms var(--ease-out);
+}
+.impact-chart.is-visible .bar-fill { transform: scaleY(1); }
+.bar:nth-child(2) .bar-fill { transition-delay: 180ms; }
+
+/* Reduced motion: show everything immediately */
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal], [data-reveal].is-visible {
+    opacity: 1;
+    translate: none;
+    scale: none;
+    filter: none;
+    transition: none;
+  }
+  .bar-fill { transform: none; transition: none; }
+}
