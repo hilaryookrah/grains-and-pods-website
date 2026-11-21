@@ -1,0 +1,29 @@
+:root {
+  --forest: #1B4332;
+  --deep: #0F2A1F;
+  --leaf: #2D7A4F;
+  --gold: #D4A017;
+  --mint: #F0FDF4;
+  --cream: #EFEDE3;
+  --olive: #737851;
+  --ink: #1C2B22;
+  --body: #3A4A40;
+  --sage: #CFE3D6;
+  --rule: #D9E8DD;
+  --max: 1240px;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Poppins, system-ui, sans-serif;
+  color: var(--ink);
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3 { letter-spacing: -0.02em; }
+h1, h2, .serif { font-family: 'Playfair Display', serif; }
+a:focus-visible, button:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
