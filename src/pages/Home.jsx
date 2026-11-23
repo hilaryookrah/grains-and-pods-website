@@ -28,7 +28,17 @@ export default function Home() {
     <>
       {/* Hero */}
       <section className="hero">
-        <img className="hero-bg" src="/images/hero-maize.jpg" alt="Maize fields at sunset in the Bono Region" />
+        <video
+          className="hero-video"
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster="/images/hero-maize.jpg"
+          aria-hidden="true"
+        >
+          <source src="/videos/hero.mp4" type="video/mp4" />
+        </video>
         <div className="hero-shade" aria-hidden="true" />
         <div className="hero-inner">
           <div className="hero-copy">
