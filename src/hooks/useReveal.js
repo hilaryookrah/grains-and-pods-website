@@ -24,6 +24,9 @@ const SELECTOR = [
   '.split-stat',
   '.science-card',
   '.trace-card',
+  '.impact-stat',
+  '.who-card',
+  '.loop-card',
 ].join(',');
 
 export default function useReveal() {
