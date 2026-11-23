@@ -8,6 +8,7 @@ import Quality from './pages/Quality';
 import Impact from './pages/Impact';
 import Traceability from './pages/Traceability';
 import Contact from './pages/Contact';
+import NotFound from './pages/NotFound';
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
           <Route path="/impact" element={<Impact />} />
           <Route path="/traceability" element={<Traceability />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </BrowserRouter>

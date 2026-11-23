@@ -42,7 +42,7 @@ export default function PoultryFarmers() {
 
       {/* Feed cost */}
       <section className="section">
-        <div className="split">
+        <div className="feature-split">
           <div className="split-copy">
             <h2>Feed is most of your cost. We help you keep it steady.</h2>
             <p>

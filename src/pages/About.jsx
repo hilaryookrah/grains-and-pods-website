@@ -68,7 +68,7 @@ export default function About() {
         <div className="page-hero-inner">
           <p className="page-hero-eyebrow">About us</p>
           <h1>
-            We started with a simple question: As a rainfed agricultural economy, why should bumper harvest be a
+            We started with a simple question: As a rainfed agricultural economy, why should a bumper harvest be a
             curse to the farmer?
           </h1>
           <p className="page-hero-lead">

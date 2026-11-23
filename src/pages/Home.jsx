@@ -34,7 +34,7 @@ export default function Home() {
           <div className="hero-copy">
             <p className="hero-kicker">Grain bank · Sunyani West, Bono Region</p>
             <h1>
-              Ghana's Premiere Grain Bank
+              Ghana's Premier Grain Bank
               <br />
               Quality grain all year
             </h1>

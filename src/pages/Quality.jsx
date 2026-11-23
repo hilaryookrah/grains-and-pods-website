@@ -5,7 +5,7 @@ const science = [
     num: '50',
     unit: 'MT / day',
     title: 'Industrial drying plant',
-    text: 'A hot-air dryer brings grain to safe moisture (≤13.5%), halting mould growth before storage.',
+    text: 'A hot-air dryer brings grain to safe moisture (≤13%), halting mould growth before storage.',
   },
   {
     num: '5,500',

@@ -1,4 +1,5 @@
-import { NavLink, Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 
 const links = [
   { to: '/', label: 'Home', end: true },
@@ -11,18 +12,37 @@ const links = [
 ];
 
 export default function Nav() {
+  const [open, setOpen] = useState(false);
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
+
   return (
     <header className="site-header">
-      <nav className="nav" aria-label="Main">
+      <nav className={`nav${open ? ' is-open' : ''}`}>
         <Link to="/" className="brand">
           <img src="/images/logo.png" alt="Grains and Pods logo" />
           <span>Grains and Pods</span>
         </Link>
 
-        <div className="nav-links">
-          {links.map((link) => (
-            <NavLink key={link.to} to={link.to} end={link.end}>
-              {link.label}
+        <button
+          type="button"
+          className="nav-toggle"
+          aria-expanded={open}
+          aria-controls="site-menu"
+          aria-label={open ? 'Close menu' : 'Open menu'}
+          onClick={() => setOpen(!open)}
+        >
+          <span />
+          <span />
+        </button>
+
+        <div id="site-menu" className="nav-links">
+          {links.map((l) => (
+            <NavLink key={l.to} to={l.to} end={l.end}>
+              {l.label}
             </NavLink>
           ))}
         </div>

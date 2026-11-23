@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { contact } from '../data/contact';
 
 const benefits = [
   {
@@ -59,7 +60,9 @@ export default function CropFarmers() {
           </p>
           <div className="sub-hero-actions">
             <Link to="/contact" className="btn btn-gold">Join our farmer network</Link>
-            <Link to="/contact" className="btn btn-outline">Call or WhatsApp us</Link>
+            <a href={contact.whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn btn-outline">
+              Call or WhatsApp us
+            </a>
           </div>
         </div>
       </section>
@@ -133,7 +136,9 @@ export default function CropFarmers() {
           <h2>Ready to sell at a fair price?</h2>
           <p>Talk to our team in English or Twi.</p>
           <div className="cta-buttons">
-            <Link to="/contact" className="btn btn-forest">Chat on WhatsApp</Link>
+            <a href={contact.whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn btn-forest">
+              Chat on WhatsApp
+            </a>
             <Link to="/contact" className="btn btn-outline-forest">Register your farm</Link>
           </div>
         </div>
