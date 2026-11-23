@@ -567,3 +567,4 @@
   .nav.is-open .nav-links,
   .nav.is-open .nav-cta { display: flex; }
 }
+.brand img { width: 58px; height: 58px; object-fit: contain; border-radius: 50%; flex-shrink: 0; }
