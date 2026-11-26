@@ -8,7 +8,12 @@ const roles = [
   'Government / media / other',
 ];
 
-const emptyForm = { role: roles[0], name: '', phone: '', email: '', message: '' };
+const emptyForm = { role: roles[0], name: '', phone: '', email: '', message: '', company: '' };
+
+// Length caps keep payloads sane and stop oversized WhatsApp links / form posts.
+const LIMITS = { name: 100, phone: 20, email: 254, message: 2000 };
+const PHONE_RE = /^\+?[0-9\s()-]{7,20}$/;
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export default function Contact() {
   const [form, setForm] = useState(emptyForm);
@@ -21,20 +26,31 @@ export default function Contact() {
     const next = {};
     if (!form.name.trim()) next.name = 'Please enter your name.';
     if (!form.phone.trim()) next.phone = 'Please enter a phone number.';
+    else if (!PHONE_RE.test(form.phone.trim())) next.phone = 'Please enter a valid phone number.';
+    if (form.email.trim() && !EMAIL_RE.test(form.email.trim())) next.email = 'Please enter a valid email address.';
+    if (!roles.includes(form.role)) next.role = 'Please choose an option.';
     setErrors(next);
     return Object.keys(next).length === 0;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    // Honeypot: real visitors never see or fill the hidden "company" field; bots usually do.
+    if (form.company) {
+      setStatus('sent');
+      return;
+    }
     if (!validate()) return;
+
+    const { company: _honeypot, ...payload } = form;
+    void _honeypot;
 
     if (!contact.formEndpoint) {
       const text = [
-        `Hi, I'm ${form.name} (${form.role}).`,
-        `Phone: ${form.phone}`,
-        form.email && `Email: ${form.email}`,
-        form.message,
+        `Hi, I'm ${payload.name.trim()} (${payload.role}).`,
+        `Phone: ${payload.phone.trim()}`,
+        payload.email.trim() && `Email: ${payload.email.trim()}`,
+        payload.message.trim(),
       ]
         .filter(Boolean)
         .join('\n');
@@ -48,7 +64,7 @@ export default function Contact() {
       const res = await fetch(contact.formEndpoint, {
         method: 'POST',
         headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        body: JSON.stringify(payload),
       });
       if (!res.ok) throw new Error('Request failed');
       setForm(emptyForm);
@@ -61,9 +77,8 @@ export default function Contact() {
   return (
     <>
       {/* Hero */}
-      <section className="page-hero">
+      <section className="page-hero hero-gradient">
         <div className="page-hero-inner">
-          <p className="eyebrow">Contact</p>
           <h1>Let's talk grain</h1>
           <p className="page-hero-lead">
             Selling, buying or partnering? Tell us who you are and we'll get back to you within {contact.responseTime}.
@@ -74,6 +89,12 @@ export default function Contact() {
       <section className="contact-section">
         <div className="contact-inner">
           <form className="contact-form" onSubmit={handleSubmit} noValidate>
+            {/* Honeypot field for spam bots; hidden from people and screen readers. */}
+            <div aria-hidden="true" style={{ position: 'absolute', left: '-10000px', width: 1, height: 1, overflow: 'hidden' }}>
+              <label htmlFor="company">Company</label>
+              <input id="company" name="company" type="text" tabIndex={-1} autoComplete="off" value={form.company} onChange={update} />
+            </div>
+
             <div className="contact-field">
               <label htmlFor="role">I am a…</label>
               <select id="role" name="role" value={form.role} onChange={update}>
@@ -91,6 +112,8 @@ export default function Contact() {
                   name="name"
                   type="text"
                   placeholder="Kwame Mensah"
+                  maxLength={LIMITS.name}
+                  autoComplete="name"
                   value={form.name}
                   onChange={update}
                   aria-invalid={!!errors.name}
@@ -106,6 +129,8 @@ export default function Contact() {
                   name="phone"
                   type="tel"
                   placeholder="+233"
+                  maxLength={LIMITS.phone}
+                  autoComplete="tel"
                   value={form.phone}
                   onChange={update}
                   aria-invalid={!!errors.phone}
@@ -117,7 +142,18 @@ export default function Contact() {
 
             <div className="contact-field">
               <label htmlFor="email">Email (optional)</label>
-              <input id="email" name="email" type="email" value={form.email} onChange={update} />
+              <input
+                id="email"
+                name="email"
+                type="email"
+                maxLength={LIMITS.email}
+                autoComplete="email"
+                value={form.email}
+                onChange={update}
+                aria-invalid={!!errors.email}
+                aria-describedby={errors.email ? 'email-error' : undefined}
+              />
+              {errors.email && <span id="email-error" className="contact-field-error">{errors.email}</span>}
             </div>
 
             <div className="contact-field">
@@ -126,6 +162,7 @@ export default function Contact() {
                 id="message"
                 name="message"
                 rows="5"
+                maxLength={LIMITS.message}
                 placeholder="e.g. I farm 10 acres of maize in Wenchi…"
                 value={form.message}
                 onChange={update}

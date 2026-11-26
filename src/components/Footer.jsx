@@ -4,8 +4,6 @@ import { contact } from '../data/contact';
 export default function Footer() {
   return (
     <footer className="footer">
-      <img className="footer-bg" src="/images/footer-bg.jpg" alt="" aria-hidden="true" />
-      <div className="footer-shade" aria-hidden="true" />
 
       <div className="footer-inner">
         <div className="footer-top">

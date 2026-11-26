@@ -48,22 +48,22 @@ export default function CropFarmers() {
   return (
     <>
       {/* Hero */}
-      <section className="sub-hero">
-        <img className="sub-hero-bg" src="/images/crop-farmers-hero.jpg" alt="Farmland in the Bono Region" />
-        <div className="sub-hero-shade" aria-hidden="true" />
-        <div className="sub-hero-inner">
-          <p className="eyebrow">For crop farmers</p>
+      <section className="hero-band hero-split">
+        <div className="hero-split-copy">
           <h1>Stop selling your harvest at the lowest price of the year</h1>
-          <p className="sub-hero-lead">
+          <p className="hero-split-lead">
             We agree a fair price with you before harvest, buy your maize, and handle the drying and storage. No
             distress sales, no rotting grain.
           </p>
-          <div className="sub-hero-actions">
+          <div className="hero-actions">
             <Link to="/contact" className="btn btn-gold">Join our farmer network</Link>
             <a href={contact.whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn btn-outline">
               Call or WhatsApp us
             </a>
           </div>
+        </div>
+        <div className="hero-split-media">
+          <img src="/images/consult_6.jpeg" alt="Maize harvest in the Bono Region" />
         </div>
       </section>
 
@@ -103,8 +103,8 @@ export default function CropFarmers() {
         <div className="wrap story">
           <img
             className="story-image"
-            src="/images/farmers-working.jpg"
-            alt="Farmers working with Grains and Pods"
+            src="/images/consult_3.jpeg"
+            alt="The Grains and Pods team"
           />
           <div className="programme-copy">
             <p className="eyebrow">Growing together</p>

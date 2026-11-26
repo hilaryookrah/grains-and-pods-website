@@ -1,9 +1,10 @@
+import CountUp from '../components/CountUp';
 import { Link } from 'react-router-dom';
 
 const marketStats = [
-  { num: '30%', text: "of Ghana's maize is consumed by the poultry sector" },
-  { num: '18%', text: "of Ghana's maize is lost every year to aflatoxin" },
-  { num: '>80%', text: 'of chicken eaten in Ghana is imported' },
+  { value: 30, suffix: '%', text: "of Ghana's maize is consumed by the poultry sector" },
+  { value: 18, suffix: '%', text: "of Ghana's maize is lost every year to aflatoxin" },
+  { value: 80, prefix: '>', suffix: '%', text: 'of chicken eaten in Ghana is imported' },
 ];
 
 const whoBenefits = [
@@ -39,12 +40,12 @@ const whoBenefits = [
 const loops = [
   {
     title: 'Organic fertilizer from poultry waste',
-    text: 'We collect droppings from our poultry client farms and compost them into certified organic fertilizer, returning nutrients to the smallholder farms that grow our grain.',
+    text: 'We compost poultry droppings from our client farms into organic fertilizer for the maize farms that supply our grain.',
     result: 'By-product → input for 800+ farms',
   },
   {
     title: 'Waste to power',
-    text: 'An on-site anaerobic digester turns corn residue and processing waste into biogas, powering the drying plant and silos while cutting emissions.',
+    text: 'An on-site digester turns corn residue into biogas to power our drying plant and silos.',
     result: 'Corn waste → renewable on-site power',
   },
 ];
@@ -53,11 +54,20 @@ export default function Impact() {
   return (
     <>
       {/* Hero */}
-      <section className="page-hero">
-        <div className="page-hero-inner">
-          <p className="eyebrow">Impact &amp; sustainability</p>
+      <section className="hero-band hero-video-split">
+        <video
+          className="hero-video-card"
+          src="/videos/consult_2.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-hidden="true"
+        />
+        <div className="hero-split-copy">
           <h1>Keeping value, and food, in our communities</h1>
-          <p className="page-hero-lead">
+          <p className="hero-split-lead">
             Grain banks link crop and poultry farmers into one resilient local value chain, so money stays in the region
             instead of leaking to imports.
           </p>
@@ -66,13 +76,18 @@ export default function Impact() {
 
       {/* Market stats */}
       <section className="impact-stats">
-        <div className="impact-stats-grid">
-          {marketStats.map((s) => (
-            <div className="impact-stat" key={s.num}>
-              <span className="impact-stat-num">{s.num}</span>
-              <span className="impact-stat-text">{s.text}</span>
-            </div>
-          ))}
+        <div className="impact-stats-inner">
+          <h2>The market in numbers</h2>
+          <div className="impact-stats-grid">
+            {marketStats.map((s) => (
+              <div className="impact-tile" key={s.text}>
+                <span className="impact-tile-num">
+                  <CountUp value={s.value} prefix={s.prefix} suffix={s.suffix} />
+                </span>
+                <span className="impact-tile-text">{s.text}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

@@ -38,7 +38,6 @@ export default function Traceability() {
     <section className="trace-hero">
       <div className="trace-hero-inner">
         <div className="trace-hero-intro">
-          <p className="eyebrow">Traceability</p>
           <h1>From a registered farm to your feed mill, every step is recorded</h1>
           <p className="trace-hero-lead">
             Every bag of maize we sell can be traced back to the farm it came from. Tap through each step.

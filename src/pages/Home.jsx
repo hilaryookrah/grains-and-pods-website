@@ -25,7 +25,7 @@ const stats = [
 
 export default function Home() {
   return (
-    <>
+    <div className="page-home">
       {/* Hero */}
       <section className="hero">
         <video
@@ -102,8 +102,7 @@ export default function Home() {
             <p className="eyebrow">Our solution</p>
             <h2 className="h2">One grain bank. Two markets made stable.</h2>
             <p className="lead">
-              We sit between the farmers who grow maize and the farmers who need it, buying fairly at harvest and
-              supplying steadily all year.
+              We sit between the crop farmers who grow maize and the poultry farmers who need it, buying fairly at harvest and supplying steadily all year.
             </p>
           </div>
 
@@ -155,21 +154,6 @@ export default function Home() {
             <Link to="/impact" className="link-arrow">See our full impact →</Link>
           </div>
 
-          <div className="impact-chart">
-            <span className="chart-label">Feed cost index (today = 100)</span>
-            <div className="bars">
-              <div className="bar">
-                <span className="bar-value bar-value-muted">100</span>
-                <div className="bar-fill bar-fill-muted" style={{ height: 200 }} />
-                <span className="bar-name">Today</span>
-              </div>
-              <div className="bar">
-                <span className="bar-value">90</span>
-                <div className="bar-fill bar-fill-forest" style={{ height: 180 }} />
-                <span className="bar-name">With Grains and Pods</span>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -224,31 +208,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Trust */}
-      <section className="section section-tint trust-section">
-        <div className="wrap trust">
-          <div className="trust-copy">
-            <h2 className="trust-h">Governed with the farmers we serve</h2>
-            <p className="lead">Both farmer communities hold seats on our board.</p>
-          </div>
-          <div className="trust-list">
-            <div className="trust-item">
-              <strong>Sunyani Maize Farmers Co-operative</strong>
-              <br />
-              President, board member
-            </div>
-            <div className="trust-item">
-              <strong>Sunyani Poultry Farmers Association</strong>
-              <br />
-              President, board member
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Call to action */}
       <section className="cta">
-        <img className="cta-bg" src="/images/cta-bg.jpg" alt="" aria-hidden="true" />
+        <img className="cta-bg" src="/images/logo.png" alt="" aria-hidden="true" />
         <div className="cta-inner">
           <h2>Grow with us</h2>
           <p>
@@ -262,6 +225,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }

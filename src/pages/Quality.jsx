@@ -1,3 +1,4 @@
+import CountUp from '../components/CountUp';
 import { Link } from 'react-router-dom';
 
 const science = [
@@ -40,15 +41,27 @@ export default function Quality() {
   return (
     <>
       {/* Hero */}
-      <section className="page-hero">
-        <div className="page-hero-inner">
-          <p className="eyebrow">Quality &amp; traceability</p>
-          <h1>Every tonne dried, stored and tested before it leaves us</h1>
-          <p className="page-hero-lead">
-            Scientifically controlled post-harvest handling, and a record that follows every bag from the farm to your
-            door.
-          </p>
+      <section className="hero-band hero-figures">
+        <h1>Every tonne dried, stored and tested before it leaves us</h1>
+        <p className="hero-split-lead">
+          Scientifically controlled post-harvest handling, and a record that follows every bag from the farm to your
+          door.
+        </p>
+        <div className="hero-figures-grid">
+          <div>
+            <p className="hero-figure-num"><CountUp value={50} /></p>
+            <p>Tonnes dried per day</p>
+          </div>
+          <div>
+            <p className="hero-figure-num"><CountUp value={5500} /></p>
+            <p>Tonnes of storage</p>
+          </div>
+          <div>
+            <p className="hero-figure-num"><CountUp value={15} suffix=" ppb" /></p>
+            <p>Aflatoxin limit we test to</p>
+          </div>
         </div>
+        <img className="hero-photo" src="/images/hero-maize.jpg" alt="Maize drying at the Grains and Pods facility" />
       </section>
 
       {/* Science */}

@@ -64,17 +64,19 @@ export default function About() {
   return (
     <>
       {/* Hero */}
-      <section className="page-hero">
-        <div className="page-hero-inner">
-          <p className="page-hero-eyebrow">About us</p>
+      <section className="hero-centered">
+        <div className="hero-centered-inner">
           <h1>
             We started with a simple question: As a rainfed agricultural economy, why should a bumper harvest be a
             curse to the farmer?
           </h1>
-          <p className="page-hero-lead">
+          <p className="hero-centered-lead">
             Grains and Pods Ltd. is a grain bank based in Mantukwa, Sunyani West, in Ghana's Bono Region. We connect
             two communities that need each other: the farmers who grow maize and the farmers who raise poultry.
           </p>
+        </div>
+        <div className="hero-centered-photo">
+          <img src="/images/facility.jpg" alt="The Grains and Pods grain bank facility in Mantukwa" />
         </div>
       </section>
 
@@ -100,7 +102,7 @@ export default function About() {
           </div>
           <img
             className="story-image"
-            src="/images/about-team.jpg"
+            src="/images/consult_4.jpeg"
             alt="The Grains and Pods team with farmers in the field"
           />
         </div>
@@ -141,9 +143,6 @@ export default function About() {
         <div className="wrap stack-xl">
           <div className="team-head">
             <h2 className="h2">Our team</h2>
-            <p className="lead">
-              Leadership with deep roots in aggregation, operations, processing and the maize and poultry trade.
-            </p>
           </div>
           <div className="team-grid">
             {team.map((member) => (

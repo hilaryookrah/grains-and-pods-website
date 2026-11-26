@@ -23,17 +23,14 @@ export default function PoultryFarmers() {
   return (
     <>
       {/* Hero */}
-      <section className="sub-hero">
-        <img className="sub-hero-bg" src="/images/poultry-hero.jpg" alt="Sacks of maize in storage" />
-        <div className="sub-hero-shade" aria-hidden="true" />
-        <div className="sub-hero-inner">
-          <p className="eyebrow">For poultry farmers &amp; feed millers</p>
+      <section className="hero-band hero-green">
+        <div className="hero-green-inner">
           <h1>Safe grain at steady prices, all year.</h1>
-          <p className="sub-hero-lead">
+          <p className="hero-split-lead">
             Aflatoxin-free maize, dried, tested and graded, delivered from our silos all year round, even in the lean
             season.
           </p>
-          <div className="sub-hero-actions">
+          <div className="hero-actions">
             <Link to="/contact" className="btn btn-gold">Request a supply quote</Link>
             <Link to="/quality" className="btn btn-outline">See our testing</Link>
           </div>
@@ -42,24 +39,25 @@ export default function PoultryFarmers() {
 
       {/* Feed cost */}
       <section className="section">
-        <div className="feature-split">
-          <div className="split-copy">
+        <div className="feed-grid">
+          <img className="portrait-photo" src="/images/maize_visit.jpeg" alt="Grains and Pods team visiting a farmer's maize store" />
+          <div className="feed-copy">
             <h2>Feed is most of your cost. We help you keep it steady.</h2>
             <p>
-              Feed is 60–70% of what it costs to raise poultry, and maize is half of every feed bag. When maize prices
-              jump 40% in the lean season, your margins disappear, or the cost is passed on to consumers, making local
-              poultry products expensive. Because we buy at harvest and bank the grain, you get stable prices all year.
+              Feed is 60–70% of what it costs to raise poultry, and maize is half of every feed bag. We buy at harvest
+              and store the grain, so your prices hold all year.
             </p>
-          </div>
-          <div className="split-stat">
-            <span className="split-stat-num">10%</span>
-            <span className="split-stat-label">lower overall feed bill</span>
-            <span className="split-stat-text">
-              Cutting the delivered cost of maize by 18–20% trims the whole feed bill by about 10%.
-            </span>
+            <div className="split-stat">
+              <span className="split-stat-num">10%</span>
+              <span className="split-stat-label">lower overall feed bill</span>
+              <span className="split-stat-text">
+                Cutting the delivered cost of maize by 18–20% trims the whole feed bill by about 10%.
+              </span>
+            </div>
           </div>
         </div>
       </section>
+
 
       {/* Benefits */}
       <section className="section-mint">
@@ -87,7 +85,6 @@ export default function PoultryFarmers() {
                   <th scope="col">Product</th>
                   <th scope="col">Moisture</th>
                   <th scope="col">Aflatoxin</th>
-                  <th scope="col">Order size</th>
                 </tr>
               </thead>
               <tbody>
@@ -95,12 +92,10 @@ export default function PoultryFarmers() {
                   <td>Maize</td>
                   <td>≤13%</td>
                   <td>Within GSA 15 ppb limit</td>
-                  <td>[Minimum order]</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <p className="spec-note">Delivery across [delivery area].</p>
         </div>
       </section>
 
